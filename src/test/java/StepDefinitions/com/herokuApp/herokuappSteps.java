@@ -1,6 +1,7 @@
 package StepDefinitions.com.herokuApp;
 
 import Pages.herokuAppPages.MainPage;
+import Utils.BrowserUtils;
 import Utils.ConfigReader;
 import Utils.Driver;
 import io.cucumber.java.en.Given;

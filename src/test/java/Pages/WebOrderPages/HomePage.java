@@ -15,5 +15,8 @@ public class HomePage {
     public WebElement orderButton;
     @FindBy(xpath = "//a[.='View all orders']")
     public WebElement viewAllOrders;
+    @FindBy(xpath = "//a[.='View all products']")
+    public WebElement viewAllProducts;
+
 
 }
