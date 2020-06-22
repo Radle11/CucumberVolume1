@@ -6,10 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features ="src\\test\\resources\\com.Etsy\\ScenarioOutlineEtsy.feature",
+    features ="src\\test\\resources\\APIpractice\\itunesSearch.feature",
     glue="StepDefinitions",//even if it is blank it will find the path and run
     monochrome = false,
-        dryRun=false,
-        tags = "@EtsyOutline"
+        dryRun=false
+//        tags = "@EtsyOutline"
 )
 public class CukesRunner {}
