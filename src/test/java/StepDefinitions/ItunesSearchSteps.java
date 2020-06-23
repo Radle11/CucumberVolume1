@@ -58,5 +58,6 @@ public class ItunesSearchSteps {
     @Then("validate correct status code")
     public void validate_correct_status_code() {
         Assert.assertEquals(HttpStatus.SC_OK, response.getStatusLine().getStatusCode());
+        Assert.assertEquals("text/html; charset=utf-8",response.getEntity().getContentType().getValue());
     }
 }
