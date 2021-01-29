@@ -6,10 +6,15 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features ="src\\test\\resources\\com.Etsy\\ScenarioOutlineEtsy.feature",
+        plugin = {"pretty",
+                "html:target/cucumber-html-report",
+                "json:target/cucumber.json",
+                "junit:target/cucumber.xml"},
+    features ="src\\test\\resources",
+        snippets = CucumberOptions.SnippetType.CAMELCASE,
     glue="StepDefinitions",//even if it is blank it will find the path and run
     monochrome = false,
-        dryRun=false,
-        tags = "@EtsyOutline"
+        dryRun=false
+      // tags = "@Slack"
 )
 public class CukesRunner {}

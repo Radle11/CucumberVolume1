@@ -11,38 +11,38 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import Utils.BrowserUtils;
 
-public class SearchBoxSteps {
-    WebDriver driver= Driver.getDriver();
+public class SearchBoxSteps extends BrowserUtils{
     SearchPage searchPage;
     ResultPage resultPage;
     @Given("the user goes to duckduckgo")
     public void the_user_goes_to_duckduckgo() {
-        driver.get(ConfigReader.getProperty("url"));
-        searchPage=new SearchPage(driver);
-        resultPage=new ResultPage(driver);
+        DRIVER.get(ConfigReader.getProperty("url"));
+        searchPage=new SearchPage();
+        resultPage=new ResultPage(DRIVER);
     }
 
     @When("the user sends the selenium keyword")
     public void the_user_sends_the_selenium_keyword() {
-        searchPage.searchBox.sendKeys(ConfigReader.getProperty("searchValue")+ Keys.ENTER);
+       sendKeys( ConfigReader.getProperty("searchValue")+ Keys.ENTER);
     }
 
     @Then("the user clicks search button")
     public void the_user_clicks_search_button() {
-//        searchPage.searchButton.click();
+        searchPage.searchButton().clickElement();
     }
 
     @Then("the user validates if title contains the selenium keyword")
     public void the_user_validates_if_title_contains_the_selenium_keyword() {
-        String actualTitle=driver.getTitle();
+        String actualTitle= DRIVER.getTitle();
         String expectedTitle=ConfigReader.getProperty("searchValue");
         Assert.assertTrue(actualTitle.contains(expectedTitle));
     }
 
     @Then("the user validates if url contains the selenium keyword")
     public void the_user_validates_if_url_contains_the_selenium_keyword() {
-        String actualURL=driver.getCurrentUrl();
+        String actualURL= DRIVER.getCurrentUrl();
         String expectedURL=ConfigReader.getProperty("searchValue");
         Assert.assertTrue(actualURL.contains(expectedURL));
     }
@@ -55,13 +55,13 @@ public class SearchBoxSteps {
     }
     @Given("the user search with {string}")
     public void the_user_search_with(String string) {
-        searchPage.searchBox.sendKeys(string);
-            searchPage.searchButton.click();
+        searchPage.searchBox().sendKeys(string);
+        searchPage.searchButton().clickElement();
     }
 
     @When("the user validate title contains {string}")
     public void the_user_validate_title_contains(String string) {
-        String actualTitle=driver.getTitle();
+        String actualTitle= DRIVER.getTitle();
         String expectedTitle=string;
         Assert.assertTrue(actualTitle.contains(expectedTitle));
 

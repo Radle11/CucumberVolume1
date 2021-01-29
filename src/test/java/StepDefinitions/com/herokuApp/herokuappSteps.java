@@ -18,7 +18,7 @@ MainPage mainPage=new MainPage(driver);
 
     @Then("the user enters the text")
     public void the_user_enters_the_text(String docString) {
-        BrowserUtils.switchByIndex(driver,0);
+        BrowserUtils.switchByIndex(0);
         mainPage.textBox.clear();
         mainPage.textBox.sendKeys(docString);
     }

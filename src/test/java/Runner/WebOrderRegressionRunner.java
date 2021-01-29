@@ -12,9 +12,9 @@ import org.junit.runner.RunWith;
                 "junit:target/cucumber.xml",
                 "rerun:target/rerun.txt"},
         features = "src\\test\\resources\\com.WebOrder\\",
+        snippets = CucumberOptions.SnippetType.UNDERSCORE,
         glue = "StepDefinitions",
         monochrome=false,
         dryRun = false
 )
-public class WebOrderRegressionRunner {
-}
+public class WebOrderRegressionRunner { }
