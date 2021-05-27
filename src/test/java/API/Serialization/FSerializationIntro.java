@@ -24,7 +24,7 @@ import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
 
-public class SerializationIntro {
+public class FSerializationIntro {
     ObjectMapper mapper;
     @Test
     public void serializa1() throws IOException {

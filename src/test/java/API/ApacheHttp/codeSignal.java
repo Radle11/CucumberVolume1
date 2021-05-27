@@ -19,9 +19,11 @@ import com.fasterxml.jackson.databind.*;
 public class codeSignal {
 
         public static void main(String[] args) throws IOException {
+            System.currentTimeMillis();
             HttpURLConnection connection=(HttpURLConnection) new URL("https://petstore.swagger.io/v2/pet/1011").openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("accept", "application/json");
+            connection.getResponseCode();
             InputStream is=connection.getInputStream();
             ObjectMapper mapper=new ObjectMapper();
             Map<String,Object> des=mapper.readValue(is,new TypeReference<Map<String, Object>>(){});
