@@ -13,8 +13,6 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt"},
         features = "src\\test\\resources\\com.WebOrder\\",
         snippets = CucumberOptions.SnippetType.UNDERSCORE,
-        glue = "StepDefinitions",
-        monochrome=false,
-        dryRun = false
+        glue = "StepDefinitions"
 )
 public class WebOrderRegressionRunner { }
